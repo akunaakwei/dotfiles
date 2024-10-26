@@ -12,21 +12,28 @@ autoload -Uz _zinit
 # path
 export PATH="$HOME/.local/bin:$PATH"
 
+
+# if on msys set bpick variable to windows
+BPICK=""
+if [[ "$(uname -a)" == *Msys ]]; then
+    BPICK="*x86_64*windows*.zip"
+fi
+
 # starship prompt
 export STARSHIP_CONFIG="$HOME/.starship.toml"
-zinit ice as"command" from"gh-r" bpick"*x86_64*windows*.zip"\
+zinit ice as"command" from"gh-r" bpick"$BPICK"\
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 # zoxide
-zinit ice as"command" from"gh-r" bpick"*x86_64*windows*.zip"\
+zinit ice as"command" from"gh-r" bpick"$BPICK"\
           atclone"./zoxide init zsh > init.zsh;" \
           atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
 
 # eza (ls alternative)
-zinit ice from"gh-r" as"program"bpick"*x86_64*windows*.zip" atinit"rm ~/.local/bin/eza &&ln eza.exe ~/.local/bin/eza"
+zinit ice from"gh-r" as"program"bpick"$BPICK" atinit"rm ~/.local/bin/eza; ln eza.exe ~/.local/bin/eza"
 zinit light eza-community/eza
 export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
 zinit light z-shell/zsh-eza
