@@ -33,7 +33,7 @@ zinit ice as"command" from"gh-r" bpick"$BPICK"\
 zinit light ajeetdsouza/zoxide
 
 # eza (ls alternative)
-zinit ice from"gh-r" as"program"bpick"$BPICK" atinit"rm ~/.local/bin/eza; ln eza.exe ~/.local/bin/eza"
+zinit ice from"gh-r" as"program"bpick"$BPICK" atinit"rm ~/.local/bin/eza; ln eza ~/.local/bin/eza"
 zinit light eza-community/eza
 export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
 zinit light z-shell/zsh-eza
