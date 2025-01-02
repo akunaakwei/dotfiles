@@ -10,6 +10,15 @@ $character"""
 right_format = """
 $cmd_duration"""
 
+command_timeout=750
+
+[username]
+format = "[$user]($style)"
+
+[hostname]
+ssh_symbol = "@"
+format = "[$ssh_symbol$hostname]($style)"
+
 [directory]
 style = "cyan"
 use_os_path_sep = false
@@ -39,7 +48,7 @@ untracked = '[?${count}](cyan)'
 modified = '[!${count}](yellow)'
 staged = '[+${count}]($style)'
 renamed = '[>>${count}]($style)'
-deleted = '[x${count}](red)'
+deleted = '[!${count}](red)'
 stashed = "≡[${count}]($style)"
 
 [git_state]
