@@ -87,3 +87,5 @@ bindkey "^[[3~" delete-char # delete
 bindkey "^[[3;5~" delete-word # ctrl+backspace
 bindkey "^[[1~" beginning-of-line # home
 bindkey "^[[4~" end-of-line # end
+bindkey "^[[A" history-beginning-search-backward # up
+bindkey "^[[B" history-beginning-search-forward # down
