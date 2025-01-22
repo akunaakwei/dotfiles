@@ -10,6 +10,7 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # autocomplete
+autoload -Uz compinit && compinit
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -73,3 +74,5 @@ bindkey "^[[1;5C" forward-word # ctrl+right
 bindkey "^[[1;5D" backward-word # ctrl+left
 bindkey "^[[3~" delete-char # delete
 bindkey "^[[3;5~" delete-word # ctrl+backspace
+bindkey "^[[1~" beginning-of-line # home
+bindkey "^[[4~" end-of-line # end
