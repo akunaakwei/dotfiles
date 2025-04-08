@@ -9,13 +9,17 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
+# custom variables
+export GOBIN=$(cygpath -wa ~/.local/bin)
+
 # autocomplete
 autoload -Uz compinit && compinit
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # path
-export PATH="$HOME/.local/bin:$PATH"
+path+=("$(cygpath $LOCALAPPDATA)\Programs\Microsoft VS Code\bin")
+path+=("$HOME/.local/bin")
 
 # zinit lbin annex
 zinit light zdharma-continuum/zinit-annex-binary-symlink
@@ -87,5 +91,5 @@ bindkey "^[[3~" delete-char # delete
 bindkey "^[[3;5~" delete-word # ctrl+backspace
 bindkey "^[[1~" beginning-of-line # home
 bindkey "^[[4~" end-of-line # end
-bindkey "^[[A" history-beginning-search-backward # up
-bindkey "^[[B" history-beginning-search-forward # down
+bindkey "^[[A" history-search-backward # up
+bindkey "^[[B" history-search-forward # down
