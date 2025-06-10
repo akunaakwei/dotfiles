@@ -1,6 +1,6 @@
 # Prerequisites
 ```bash
-> pacman -S zsh git stow mingw-w64-ucrt-x86_64-eza mingw-w64-ucrt-x86_64-zoxide
+> pacman -S zsh git stow mingw-w64-ucrt-x86_64-eza mingw-w64-ucrt-x86_64-zoxide mingw-w64-ucrt-x86_64-starship
 ```
 
 # Quick Start
