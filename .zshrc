@@ -56,7 +56,7 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light fourdim/zsh-archlinux
-zinit ice lbin"!bin/*"
+# zinit ice lbin"!bin/*"
 zinit light z-shell/zsh-diff-so-fancy
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
