@@ -20,32 +20,33 @@ autoload -Uz _zinit
 # path
 path+=("$(cygpath $LOCALAPPDATA)\Programs\Microsoft VS Code\bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/.local/share/dart-sdk-3.6.0/bin")
 
 # zinit lbin annex
-zinit light zdharma-continuum/zinit-annex-binary-symlink
+# zinit light zdharma-continuum/zinit-annex-binary-symlink
 
 # if on msys set bpick variable to windows
 # because otherwise zinit will download darwin executables :(
-BPICK=""
-if [[ "$(uname -a)" == *Msys ]]; then
-    BPICK="*x86_64*windows*.zip"
-fi
+# BPICK=""
+# if [[ "$(uname -a)" == *Msys ]]; then
+#     BPICK="*x86_64*windows*.zip"
+# fi
 
 # starship prompt
 export STARSHIP_CONFIG="$HOME/.starship.toml"
-zinit ice lbin"!starship" from"gh-r" bpick"$BPICK" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+# zinit ice lbin"!starship" from"gh-r" bpick"$BPICK" \
+#           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+#           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 # zoxide
-zinit ice lbin"!zoxide" from"gh-r" bpick"$BPICK" \
-          atclone"./zoxide init zsh > init.zsh;" \
-          atpull"%atclone" src"init.zsh"
+# zinit ice lbin"!zoxide" from"gh-r" bpick"$BPICK" \
+#           atclone"./zoxide init zsh > init.zsh;" \
+#           atpull"%atclone" src"init.zsh"
 zinit light ajeetdsouza/zoxide
 
 # eza (ls alternative)
-zinit ice lbin"!eza" from"gh-r"
+# zinit ice lbin"!eza" from"gh-r"
 zinit light eza-community/eza
 export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
 zinit light z-shell/zsh-eza
