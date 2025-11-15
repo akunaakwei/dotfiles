@@ -31,7 +31,7 @@ eval "$(zoxide init zsh)"
 # fzf
 eval "$(fzf --zsh)"
 zinit ice wait lucid atinit"source fzf-git.sh"
-zinit load junegunn/fzf-git.sh
+zinit light junegunn/fzf-git.sh
 
 # eza (ls alternative)
 export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
