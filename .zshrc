@@ -10,7 +10,12 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # custom variables
-export GOBIN=$(cygpath -wa ~/.local/bin)
+if [ "$(which cygpath)" != "" ]; then
+    export GOBIN=$(cygpath -wa ~/.local/bin)
+else
+    export GOBIN="$HOME/.local/bin"
+fi
+
 
 # autocomplete
 autoload -Uz compinit && compinit
