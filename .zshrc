@@ -18,7 +18,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # path
-path+=("$(cygpath $PROGRAMFILES)/Microsoft VS Code/bin")
 path+=("$HOME/.local/bin")
 
 # starship prompt
