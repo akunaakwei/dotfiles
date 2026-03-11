@@ -18,3 +18,14 @@ cd dotfiles
 stow .
 chsh -s $(which zsh)
 ```
+
+## Fedora 43
+```bash
+curl -sS https://starship.rs/install.sh | sh
+sudo dnf copr enable alternateved/eza
+sudo dnf install git stow zsh zoxide fzf
+git clone https://github.com/akunaakwei/dotfiles.git
+cd dotfiles
+stow .
+chsh -s /usr/bin/zsh
+```
