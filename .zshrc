@@ -48,6 +48,11 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light fourdim/zsh-archlinux
 
+# bat (cat alternative)
+if command -v bat >/dev/null 2>&1; then
+    alias cat="$(which bat)"
+fi
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select=1
