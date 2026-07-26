@@ -53,6 +53,11 @@ if command -v bat >/dev/null 2>&1; then
     alias cat="$(which bat)"
 fi
 
+# brew (package manager)
+if command -v brew >/dev/null 2>&1; then
+    eval "$(brew shellenv zsh)"
+fi
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select=1

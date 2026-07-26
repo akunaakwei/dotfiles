@@ -9,6 +9,14 @@ MSYS=winsymlinks:nativestrict stow .
 ```
 Use the following command line for terminal: `C:/msys64/msys2_shell.cmd -defterm -here -no-start -ucrt64 -shell zsh`
 
+## MacOS
+```bash
+brew install stow eza zoxide starship fzf bat
+git clone https://github.com/akunaakwei/dotfiles.git
+cd dotfiles
+stow .
+```
+
 ## Ubuntu 24
 ```bash
 curl -sS https://starship.rs/install.sh | sh
