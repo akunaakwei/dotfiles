@@ -9,11 +9,13 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
-# custom variables
-if (( $+commands[cygpath] )); then
-    export GOBIN=$(cygpath -wa ~/.local/bin)
-else
-    export GOBIN="$HOME/.local/bin"
+# go
+if (( $+commands[go] )) then
+    if (( $+commands[cygpath] )); then
+        export GOBIN=$(cygpath -wa ~/.local/bin)
+    else
+        export GOBIN="$HOME/.local/bin"
+    fi
 fi
 
 
@@ -30,17 +32,23 @@ export STARSHIP_CONFIG="$HOME/.starship.toml"
 eval "$(starship init zsh)"
 
 # zoxide
-eval "$(zoxide init zsh)"
+if (( $+commands[zoxide] )) then
+    eval "$(zoxide init zsh)"
+fi
 
 # fzf
-eval "$(fzf --zsh)"
-zinit ice wait lucid atinit"source fzf-git.sh" has"fzf"
-zinit light junegunn/fzf-git.sh
+if (( $+commands[fzf] )) then
+    eval "$(fzf --zsh)"
+    zinit ice wait lucid atinit"source fzf-git.sh" has"fzf"
+    zinit light junegunn/fzf-git.sh
+fi
 
 # eza (ls alternative)
-export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
-zinit ice wait lucid has"eza"
-zinit light z-shell/zsh-eza
+if (( $+commands[eza] )) then
+    export _EZA_PARAMS=('--git' '--group' '--group-directories-first' '--time-style=long-iso' '--color-scale=all')
+    zinit ice wait lucid has"eza"
+    zinit light z-shell/zsh-eza
+fi
 
 # zinit plugins
 zinit light zdharma-continuum/fast-syntax-highlighting
