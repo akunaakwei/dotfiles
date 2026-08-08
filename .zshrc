@@ -95,11 +95,13 @@ setopt listpacked
 setopt automenu
 
 # keybindings
-bindkey "^[[1;5C" forward-word # ctrl+right
-bindkey "^[[1;5D" backward-word # ctrl+left
-bindkey "^[[3~" delete-char # delete
-bindkey "^[[3;5~" delete-word # ctrl+backspace
-bindkey "^[[1~" beginning-of-line # home
-bindkey "^[[4~" end-of-line # end
-bindkey "^[[A" history-search-backward # up
-bindkey "^[[B" history-search-forward # down
+bindkey '\e[1;5C' forward-word          # Ctrl+Right
+bindkey '\e[1;5D' backward-word         # Ctrl+Left
+bindkey '\e[3~'    delete-char           # Delete
+bindkey '\e[3;5~'  delete-word           # Ctrl+Delete
+bindkey '\e[H'     beginning-of-line     # Home
+bindkey '\e[1~'    beginning-of-line     # Home
+bindkey '\e[F'     end-of-line           # End
+bindkey '\e[4~'    end-of-line           # End
+bindkey '\e[A'     history-search-backward # Up
+bindkey '\e[B'     history-search-forward  # Down
