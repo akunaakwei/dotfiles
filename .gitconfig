@@ -1,6 +1,7 @@
 [user]
 	email = akunaakwei@gmail.com
 	name = Akuna Akwei
+	signingkey = 8A2410500297545A
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -12,3 +13,7 @@
 	excludesFile = ~/.gitglobalignore
 [push]
 	autoSetupRemote = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
