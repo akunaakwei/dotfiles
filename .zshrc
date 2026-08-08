@@ -49,14 +49,24 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light fourdim/zsh-archlinux
 
 # bat (cat alternative)
-if command -v bat >/dev/null 2>&1; then
+if (( $+commands[bat] ));  then
     alias cat="$(which bat)"
 fi
 
 # brew (package manager)
-if command -v brew >/dev/null 2>&1; then
+if (( $+commands[brew] )) then
     eval "$(brew shellenv zsh)"
 fi
+
+if (( $+commands[cygpath] )); then
+    # convert windows JAVA_HOME to unix style if it is windows
+    if [[ $JAVA_HOME =~ '^[[:alpha:]]:' ]]; then
+        export JAVA_HOME="$(cygpath -u "$JAVA_HOME")"
+    fi
+    # add java to path
+    path+=("$JAVA_HOME/bin")
+fi
+
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
